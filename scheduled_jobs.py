@@ -20,7 +20,7 @@ def process_orders(app):
         orders = get_queue_of_orders_to_process()
         if len(orders) == 0:
             return
-try:
+
         order = orders[0]
 
         payload = {
@@ -39,8 +39,6 @@ try:
 
         order.set_as_processed()
         save_order(order)
-except:
-    app.logger.exception("Error processing order {id}".format(id = order.id))
     
 from data.database import save_order, get_all_orders
 from products import create_product_download
