@@ -15,7 +15,7 @@ jobs:
     # if: github.ref == 'refs/heads/main'
     if: github.repository != 'corndeladmin/DevOps-Unit-10-Workshop'
     steps:
-      - name: test
+      - name: testupdated
         run: echo ${{ github.repository }}
       - name: Checkout repo
         uses: actions/checkout@v3
