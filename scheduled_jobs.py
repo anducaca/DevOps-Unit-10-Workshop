@@ -40,7 +40,9 @@ try:
         order.set_as_processed()
         save_order(order)
 except:
-    from data.database import save_order, get_all_orders
+    app.logger.exception("Error processing order {id}".format(id = order.id))
+    
+from data.database import save_order, get_all_orders
 from products import create_product_download
 from apscheduler.schedulers.background import BackgroundScheduler
 import requests
